@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Button from '../ui/Button';
 import { useModal } from '@/context/ModalContext';
 
@@ -24,11 +25,6 @@ export default function Navbar() {
                 }`}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
-                {/* Logo */}
-                import Image from 'next/image';
-
-                // ... (inside component)
-
                 {/* Logo */}
                 <Link href="/" className="text-xl font-bold tracking-tight text-foreground flex items-center gap-2">
                     <div className="relative w-8 h-8 rounded-full overflow-hidden flex items-center justify-center bg-foreground">
