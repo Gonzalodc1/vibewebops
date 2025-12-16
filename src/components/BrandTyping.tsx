@@ -13,47 +13,37 @@ export default function BrandTyping({ text }: BrandTypingProps) {
     useEffect(() => {
         let timeoutId: NodeJS.Timeout;
 
-        const handleTyping = () => {
-            const currentLength = displayText.length;
-
-            if (currentLength < text.length) {
-                // Typing phase
-                const randomSpeed = 50 + Math.random() * 50; // Random speed between 50ms and 100ms
-                timeoutId = setTimeout(() => {
-                    setDisplayText(text.slice(0, currentLength + 1));
-                }, randomSpeed);
-            } else {
-                // Finished typing, switch to pausing
-                setPhase('pausing');
+        const loop = () => {
+            if (phase === 'typing') {
+                if (displayText.length < text.length) {
+                    const randomSpeed = 50 + Math.random() * 50;
+                    timeoutId = setTimeout(() => {
+                        setDisplayText(text.slice(0, displayText.length + 1));
+                    }, randomSpeed);
+                } else {
+                    setPhase('pausing');
+                }
+            } else if (phase === 'pausing') {
                 timeoutId = setTimeout(() => {
                     setPhase('deleting');
-                }, 1000); // Pause for 1 second
-            }
-        };
-
-        const handleDeleting = () => {
-            const currentLength = displayText.length;
-
-            if (currentLength > 0) {
-                // Deleting phase
-                const randomSpeed = 30 + Math.random() * 20; // Faster delete speed
-                timeoutId = setTimeout(() => {
-                    setDisplayText(text.slice(0, currentLength - 1));
-                }, randomSpeed);
-            } else {
-                // Finished deleting, switch to idle/pause before typing again
-                setPhase('idle');
+                }, 1500);
+            } else if (phase === 'deleting') {
+                if (displayText.length > 0) {
+                    const randomSpeed = 30 + Math.random() * 20;
+                    timeoutId = setTimeout(() => {
+                        setDisplayText(text.slice(0, displayText.length - 1));
+                    }, randomSpeed);
+                } else {
+                    setPhase('idle');
+                }
+            } else if (phase === 'idle') {
                 timeoutId = setTimeout(() => {
                     setPhase('typing');
-                }, 800); // Pause for 0.8s
+                }, 500);
             }
         };
 
-        if (phase === 'typing') {
-            handleTyping();
-        } else if (phase === 'deleting') {
-            handleDeleting();
-        }
+        loop();
 
         return () => clearTimeout(timeoutId);
     }, [displayText, phase, text]);

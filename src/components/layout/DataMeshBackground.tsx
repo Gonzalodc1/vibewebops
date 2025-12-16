@@ -19,11 +19,11 @@ export default function DataMeshBackground() {
         const isDark = currentTheme === 'dark';
 
         // Config based on theme
-        const nodeColor = isDark ? 'rgba(255, 255, 255, 0.5)' : 'rgba(15, 23, 42, 0.4)';
-        const lineColor = isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(15, 23, 42, 0.06)';
-        const connectionDist = 150;
+        const nodeColor = isDark ? 'rgba(255, 255, 255, 0.8)' : 'rgba(15, 23, 42, 0.7)';
+        const lineColor = isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(15, 23, 42, 0.15)';
+        const connectionDist = 200;
         // Upgrade: density
-        const numNodes = window.innerWidth < 768 ? 70 : 180;
+        const numNodes = window.innerWidth < 768 ? 100 : 250;
 
         let nodes: { x: number; y: number; vx: number; vy: number }[] = [];
         let width = 0;
@@ -99,7 +99,7 @@ export default function DataMeshBackground() {
                         ctx.moveTo(node.x, node.y);
                         ctx.lineTo(other.x, other.y);
                         ctx.strokeStyle = lineColor;
-                        ctx.lineWidth = 0.5;
+                        ctx.lineWidth = 0.8;
                         const alpha = 1 - (dist / connectionDist);
                         ctx.globalAlpha = alpha;
                         ctx.stroke();

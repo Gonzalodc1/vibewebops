@@ -9,7 +9,6 @@ import ThemeToggleFab from "@/components/ui/ThemeToggleFab";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@/components/Analytics";
 import { CookieBanner } from "@/components/CookieBanner";
-import IABubble from "@/components/IABubble";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -47,7 +46,6 @@ export default function RootLayout({
           <Footer />
           <ThemeToggleFab />
           <CookieBanner />
-          <IABubble />
         </Providers>
       </body>
     </html>
