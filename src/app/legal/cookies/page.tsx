@@ -1,6 +1,6 @@
 import LegalLayout from "@/components/LegalLayout";
 
-export const metadata = { title: "Política de Cookies | Vibe Web Ops" };
+export const metadata = { title: "Política de Cookies | Levely Creative" };
 
 export default function Cookies() {
     return (

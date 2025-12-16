@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
-        sitemap: 'https://vibewebops.com/sitemap.xml',
+        sitemap: 'https://levelycreative.com/sitemap.xml',
     };
 }

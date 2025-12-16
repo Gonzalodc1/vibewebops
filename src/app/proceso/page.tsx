@@ -6,7 +6,7 @@ import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 
 export const metadata = {
-    title: "Nuestro Proceso | Vibe Web Ops",
+    title: "Nuestro Proceso | Levely Creative",
     description: "Cómo trabajamos paso a paso para entregar tu web.",
 };
 

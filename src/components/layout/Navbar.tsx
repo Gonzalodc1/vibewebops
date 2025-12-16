@@ -25,12 +25,16 @@ export default function Navbar() {
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
+                import Image from 'next/image';
+
+                // ... (inside component)
+
+                {/* Logo */}
                 <Link href="/" className="text-xl font-bold tracking-tight text-foreground flex items-center gap-2">
-                    <div className="w-8 h-8 bg-foreground rounded-full flex items-center justify-center">
-                        {/* Abstract Logo mark */}
-                        <div className="w-3 h-3 bg-background rounded-full"></div>
+                    <div className="relative w-8 h-8 rounded-full overflow-hidden flex items-center justify-center bg-foreground">
+                        <Image src="/logo.png" alt="Levely Creative Logo" fill className="object-cover" />
                     </div>
-                    <span>Vibe Web Ops</span>
+                    <span>Levely Creative</span>
                 </Link>
 
                 {/* Desktop Links */}

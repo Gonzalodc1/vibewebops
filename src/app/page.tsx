@@ -123,7 +123,7 @@ export default function Home() {
               <Card className="bg-gradient-to-br from-surface to-surface-hover border-border relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-32 bg-accent/5 blur-[100px] rounded-full group-hover:bg-accent/10 transition-all duration-700"></div>
                 <div className="relative z-10">
-                  <h3 className="text-2xl font-bold text-foreground mb-8">La Solución Vibe</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-8">La Solución Levely</h3>
                   <div className="space-y-6">
                     {[
                       "Desarrollo a medida con Next.js",

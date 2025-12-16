@@ -6,7 +6,7 @@ import { Button } from "@/components/Button";
 import { MessageCircle, Phone, Mail, MapPin } from "lucide-react";
 
 export const metadata = {
-    title: "Contacto | Vibe Web Ops",
+    title: "Contacto | Levely Creative",
     description: "Habla con nosotros. Presupuestos sin compromiso.",
 };
 
@@ -59,7 +59,7 @@ export default function ContactPage() {
 
                                     <div className="flex items-center gap-4 p-4">
                                         <Mail className="h-6 w-6 text-indigo-600" />
-                                        <span className="text-slate-600 dark:text-slate-400">contacto@vibewebops.com</span>
+                                        <span className="text-slate-600 dark:text-slate-400">contacto@levelycreative.com</span>
                                     </div>
                                     <div className="flex items-center gap-4 p-4">
                                         <MapPin className="h-6 w-6 text-indigo-600" />

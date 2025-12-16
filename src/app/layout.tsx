@@ -16,8 +16,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Vibe Web Ops | Agencia de Desarrollo Web y Conversión",
-  description: "Desarrollo web profesional, optimizado para captar leads y vender más. Next.js, diseño moderno y resultados tangibles.",
+  title: "Levely Creative | Diseño y desarrollo web orientado a conversión",
+  description: "Diseño y desarrollo web orientado a conversión y medición. Next.js, soluciones premium y resultados tangibles.",
 };
 
 export default function RootLayout({

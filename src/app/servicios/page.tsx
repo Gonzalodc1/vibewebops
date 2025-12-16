@@ -6,7 +6,7 @@ import { Button } from "@/components/Button";
 import Link from "next/link";
 
 export const metadata = {
-    title: "Servicios | Vibe Web Ops",
+    title: "Servicios | Levely Creative",
     description: "Desarrollo web a medida, optimización y mantenimiento para negocios digitales.",
 };
 
@@ -85,7 +85,7 @@ export default function ServicesPage() {
                             <div className="grid md:grid-cols-2 gap-12 items-center">
                                 <div>
                                     <span className="text-indigo-600 font-bold tracking-wide uppercase text-sm">Paz mental</span>
-                                    <h2 className="text-3xl font-bold text-slate-900 dark:text-white mt-2 mb-4">Mantenimiento Web Ops</h2>
+                                    <h2 className="text-3xl font-bold text-slate-900 dark:text-white mt-2 mb-4">Mantenimiento Levely</h2>
                                     <p className="text-slate-600 dark:text-slate-400 mb-6">
                                         Nos convertimos en tu departamento técnico. Aseguramos que tu web siempre esté online, rápida y segura.
                                     </p>

@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Check, X } from "lucide-react";
 
 export const metadata = {
-    title: "Precios | Vibe Web Ops",
+    title: "Precios | Levely Creative",
     description: "Planes transparentes para tu web: Launch, Upgrade y Mantenimiento.",
 };
 

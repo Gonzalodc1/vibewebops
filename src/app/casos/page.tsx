@@ -6,7 +6,7 @@ import { Button } from "@/components/Button";
 import Link from "next/link";
 
 export const metadata = {
-    title: "Casos de Éxito | Vibe Web Ops",
+    title: "Casos de Éxito | Levely Creative",
     description: "Ejemplos reales de webs que generan resultados.",
 };
 

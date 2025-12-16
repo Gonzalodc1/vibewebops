@@ -43,7 +43,7 @@ export function Header() {
                 <div className="flex items-center justify-between h-16 md:h-20">
                     {/* Logo */}
                     <Link href="/" className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
-                        Vibe<span className="text-indigo-600">WebOps</span>
+                        Levely Creative
                     </Link>
 
                     {/* Desktop Nav */}

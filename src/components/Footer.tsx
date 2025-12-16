@@ -10,7 +10,7 @@ export function Footer() {
                 <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
                     <div className="max-w-sm">
                         <Link href="/" className="text-xl font-bold tracking-tight text-foreground mb-4 block">
-                            Vibe<span className="text-accent">WebOps</span>
+                            Levely Creative
                         </Link>
                         <p className="text-text-muted">
                             Micro-agencia especializada en Next.js y conversión. Construimos webs rápidas, modernas y rentables.
@@ -28,7 +28,7 @@ export function Footer() {
                 </div>
 
                 <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-text-muted">
-                    <p>© {year} Vibe Web Ops. Todos los derechos reservados.</p>
+                    <p>© {year} Levely Creative. Todos los derechos reservados.</p>
                     <p>Made with Next.js & TailwindCSS</p>
                 </div>
             </Container>
