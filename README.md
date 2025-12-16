@@ -10,7 +10,7 @@ Sitio web profesional desarrollado con Next.js 14+, TailwindCSS y Anime.js.
    ```
 
 2. **Configurar Entorno:**
-   - Copia `.env.example` a `.env.local`
+   - Crea un archivo ".env.local"
    - Rellena las variables:
      - `NEXT_PUBLIC_GA4_ID`: Tu ID de medición de Google Analytics 4 (G-XXXXX).
      - `NEXT_PUBLIC_WHATSAPP_NUMBER`: Número de teléfono con prefijo (sin +), ej: 34600000000.
