@@ -7,30 +7,9 @@ import { useTheme } from 'next-themes';
 import Button from '../ui/Button';
 import { useModal } from '@/context/ModalContext';
 
-const TypewriterEffect = ({ text }: { text: string }) => {
-    const [displayText, setDisplayText] = useState('');
+import BrandTyping from '../BrandTyping';
 
-    useEffect(() => {
-        let currentIndex = 0;
-        const interval = setInterval(() => {
-            if (currentIndex <= text.length) {
-                setDisplayText(text.slice(0, currentIndex));
-                currentIndex++;
-            } else {
-                clearInterval(interval);
-            }
-        }, 100); // Speed of typing
-
-        return () => clearInterval(interval);
-    }, [text]);
-
-    return (
-        <span className="inline-block min-w-[1ch]">
-            {displayText}
-            <span className="animate-pulse">_</span>
-        </span>
-    );
-};
+// Removed inline TypewriterEffect in favor of dedicated component
 
 export default function Navbar() {
     const { openModal } = useModal();
@@ -69,7 +48,7 @@ export default function Navbar() {
                         />
                     </div>
                     <span className="font-mono text-xl md:text-2xl tracking-tighter">
-                        <TypewriterEffect text="Levely Creative" />
+                        <BrandTyping text="Levely Creative" />
                     </span>
                 </Link>
 

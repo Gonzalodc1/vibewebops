@@ -23,7 +23,7 @@ export default function DataMeshBackground() {
         const lineColor = isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(15, 23, 42, 0.06)';
         const connectionDist = 150;
         // Upgrade: density
-        const numNodes = window.innerWidth < 768 ? 40 : 120;
+        const numNodes = window.innerWidth < 768 ? 70 : 180;
 
         let nodes: { x: number; y: number; vx: number; vy: number }[] = [];
         let width = 0;
@@ -137,7 +137,7 @@ export default function DataMeshBackground() {
     return (
         <canvas
             ref={canvasRef}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none hidden md:block"
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none"
             // Centered fixed position to allow rotation without offset drift
             style={{ opacity: 0.8 }}
         />
