@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { Loader2 } from 'lucide-react';
 import { Input, Textarea } from './ui/Input';
 import CustomSelect from './ui/CustomSelect';
 import Button from './ui/Button';
@@ -20,18 +21,41 @@ export default function ContactForm({ onSuccess }: { onSuccess?: () => void }) {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+        if (error) setError(''); // Clear error on type
+    };
+
+    const validateForm = () => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[0-9+\s-]{9,}$/; // At least 9 chars, nums, +, space, dash
+
+        // Check if input looks like email OR phone
+        const isEmail = emailRegex.test(formData.contacto);
+        const isPhone = phoneRegex.test(formData.contacto);
+
+        if (!formData.nombre.trim()) return "El nombre es obligatorio.";
+        if (!formData.mensaje.trim()) return "El mensaje es obligatorio.";
+        if (!isEmail && !isPhone) return "Introduce un email o teléfono válido.";
+
+        return null;
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        const validationError = validateForm();
+        if (validationError) {
+            setError(validationError);
+            return;
+        }
+
         setLoading(true);
         setError('');
 
         const scriptURL = process.env.NEXT_PUBLIC_APPS_SCRIPT_URL;
 
         if (!scriptURL) {
-            // Fallback for demo/dev if no URL set
             console.warn("NEXT_PUBLIC_APPS_SCRIPT_URL not set");
+            // Simulate success for dev
             setTimeout(() => {
                 setLoading(false);
                 setSuccess(true);
@@ -41,35 +65,38 @@ export default function ContactForm({ onSuccess }: { onSuccess?: () => void }) {
         }
 
         try {
-            // POST formatting for Google Apps Script standard
-            const response = await fetch(scriptURL, {
+            // Sanitize Payload for Sheets
+            const payload = { ...formData };
+            if (payload.contacto.trim().startsWith('+')) {
+                // Add apostrophe to force string in Sheets (prevents formula error)
+                payload.contacto = "'" + payload.contacto;
+            }
+
+            await fetch(scriptURL, {
                 method: 'POST',
-                mode: 'no-cors', // standard hack for GAS
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
             });
 
-            // With no-cors we can't check response.ok, we assume success if no network error
             setLoading(false);
             setSuccess(true);
             if (onSuccess) setTimeout(onSuccess, 2000);
 
         } catch (err) {
             console.error(err);
-            setError('Hubo un error al enviar. Por favor intenta de nuevo o usa WhatsApp.');
+            setError('Error al enviar. Inténtalo de nuevo o usa WhatsApp.');
             setLoading(false);
         }
     };
 
     if (success) {
         return (
-            <div className="text-center py-12">
+            <div className="text-center py-12 animate-fade-in">
                 <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-3xl">✅</span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">¡Mensaje enviado!</h3>
+                <h3 className="text-xl font-bold text-foreground mb-2">¡Mensaje enviado!</h3>
                 <p className="text-text-muted">Te responderemos en breve.</p>
             </div>
         )
@@ -89,8 +116,8 @@ export default function ContactForm({ onSuccess }: { onSuccess?: () => void }) {
             <div className="grid grid-cols-2 gap-4">
                 <Input
                     name="empresa"
-                    placeholder="Nombre de tu negocio"
-                    label="Empresa (Opcional)"
+                    placeholder="Tu negocio (Opcional)"
+                    label="Empresa"
                     value={formData.empresa}
                     onChange={handleChange}
                 />
@@ -109,11 +136,12 @@ export default function ContactForm({ onSuccess }: { onSuccess?: () => void }) {
 
             <Input
                 name="contacto"
-                placeholder="tu@email.com o teléfono"
+                placeholder="Email o Teléfono"
                 label="Contacto"
                 required
                 value={formData.contacto}
                 onChange={handleChange}
+                error={error && error.includes('válido') ? error : undefined}
             />
 
             <Textarea
@@ -126,10 +154,17 @@ export default function ContactForm({ onSuccess }: { onSuccess?: () => void }) {
                 onChange={handleChange}
             />
 
-            {error && <p className="text-sm text-red-500">{error}</p>}
+            {error && !error.includes('válido') && <p className="text-sm text-red-500 font-medium">{error}</p>}
 
-            <Button type="submit" fullWidth disabled={loading}>
-                {loading ? 'Enviando...' : 'Enviar Solicitud'}
+            <Button type="submit" fullWidth disabled={loading} className="relative">
+                {loading ? (
+                    <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Enviando...
+                    </>
+                ) : (
+                    'Enviar Solicitud'
+                )}
             </Button>
 
             <p className="text-xs text-center text-text-muted opacity-50">

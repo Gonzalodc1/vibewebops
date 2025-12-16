@@ -1,18 +1,13 @@
-'use client';
-
 import React from 'react';
-import Link from "next/link";
 import {
-  MessageCircle, Phone, Smartphone, BarChart3, Palette, CheckCircle2,
-  XCircle, ArrowRight, Activity, Zap, Layers, ChevronDown
+  Activity, Layers, Zap, CheckCircle2,
+  XCircle, Palette, Smartphone, BarChart3, ChevronDown
 } from "lucide-react";
-import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { useModal } from "@/context/ModalContext";
+import { OpenModalButton, WhatsAppButton } from "@/components/home/HomeClientComponents";
 
 export default function Home() {
-  const { openModal } = useModal();
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
 
   // Data
@@ -85,15 +80,10 @@ export default function Home() {
 
           <ScrollReveal direction="up" delay={400}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button onClick={openModal} size="lg" className="min-w-[200px] shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)]">
+              <OpenModalButton size="lg" className="min-w-[200px] shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)]">
                 Pedir presupuesto
-              </Button>
-              <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
-                <Button variant="text" className="gap-2 text-text-muted hover:text-white">
-                  <MessageCircle className="h-5 w-5" />
-                  Consultar por WhatsApp
-                </Button>
-              </a>
+              </OpenModalButton>
+              <WhatsAppButton number={whatsappNumber} />
             </div>
             <p className="mt-4 text-xs text-text-muted opacity-60">
               Respuesta en menos de 24h
@@ -175,9 +165,9 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Button onClick={openModal} variant={service.featured ? 'primary' : 'outline'} fullWidth>
+                  <OpenModalButton variant={service.featured ? 'primary' : 'outline'} fullWidth>
                     Más información
-                  </Button>
+                  </OpenModalButton>
                 </Card>
               </ScrollReveal>
             ))}
@@ -228,9 +218,9 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-foreground mb-2">{plan.name}</h3>
                   <div className="text-3xl font-bold text-accent mb-2">{plan.price}</div>
                   <p className="text-sm text-text-muted mb-6">{plan.description}</p>
-                  <Button onClick={openModal} variant={plan.featured ? 'primary' : 'outline'} fullWidth size="sm">
+                  <OpenModalButton variant={plan.featured ? 'primary' : 'outline'} fullWidth size="sm">
                     Empezar ahora
-                  </Button>
+                  </OpenModalButton>
                 </Card>
               </ScrollReveal>
             ))}
@@ -277,9 +267,9 @@ export default function Home() {
             <p className="text-xl text-text-muted mb-12 max-w-2xl mx-auto">
               Agenda una consultoría gratuita y veamos cómo podemos ayudarte a crecer.
             </p>
-            <Button onClick={openModal} size="lg" className="min-w-[200px] text-lg">
+            <OpenModalButton size="lg" className="min-w-[200px] text-lg">
               Pedir presupuesto
-            </Button>
+            </OpenModalButton>
           </ScrollReveal>
         </div>
       </section>
