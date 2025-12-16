@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import DataMeshBackground from "@/components/layout/DataMeshBackground";
@@ -12,6 +12,11 @@ import { CookieBanner } from "@/components/CookieBanner";
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
 });
 
@@ -28,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.variable} font-sans antialiased bg-background text-foreground flex flex-col min-h-screen overflow-x-hidden`}
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-background text-foreground flex flex-col min-h-screen overflow-x-hidden`}
       >
         <Providers>
           <Analytics />

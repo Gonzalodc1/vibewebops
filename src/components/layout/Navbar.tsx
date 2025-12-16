@@ -7,6 +7,31 @@ import { useTheme } from 'next-themes';
 import Button from '../ui/Button';
 import { useModal } from '@/context/ModalContext';
 
+const TypewriterEffect = ({ text }: { text: string }) => {
+    const [displayText, setDisplayText] = useState('');
+
+    useEffect(() => {
+        let currentIndex = 0;
+        const interval = setInterval(() => {
+            if (currentIndex <= text.length) {
+                setDisplayText(text.slice(0, currentIndex));
+                currentIndex++;
+            } else {
+                clearInterval(interval);
+            }
+        }, 100); // Speed of typing
+
+        return () => clearInterval(interval);
+    }, [text]);
+
+    return (
+        <span className="inline-block min-w-[1ch]">
+            {displayText}
+            <span className="animate-pulse">_</span>
+        </span>
+    );
+};
+
 export default function Navbar() {
     const { openModal } = useModal();
     const { resolvedTheme } = useTheme();
@@ -33,8 +58,8 @@ export default function Navbar() {
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-3">
-                    <div className="relative w-12 h-12 flex items-center justify-center">
+                <Link href="/" className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-3 group">
+                    <div className="relative w-12 h-12 flex items-center justify-center transition-transform group-hover:scale-105">
                         <Image
                             src={logoSrc}
                             alt="Levely Creative Logo"
@@ -43,7 +68,9 @@ export default function Navbar() {
                             priority
                         />
                     </div>
-                    <span>Levely Creative</span>
+                    <span className="font-mono text-xl md:text-2xl tracking-tighter">
+                        <TypewriterEffect text="Levely Creative" />
+                    </span>
                 </Link>
 
                 {/* Desktop Links */}
