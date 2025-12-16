@@ -3,21 +3,28 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 import Button from '../ui/Button';
 import { useModal } from '@/context/ModalContext';
 
 export default function Navbar() {
     const { openModal } = useModal();
+    const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Simple mobile menu logic if needed
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Defalt to black logo during SSR/hydration to prevent layout shift, adjust if needed
+    const logoSrc = mounted && resolvedTheme === 'dark' ? '/logo-white.png' : '/logo-black.png';
 
     return (
         <nav
@@ -26,9 +33,15 @@ export default function Navbar() {
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="text-xl font-bold tracking-tight text-foreground flex items-center gap-2">
-                    <div className="relative w-8 h-8 rounded-full overflow-hidden flex items-center justify-center bg-foreground">
-                        <Image src="/logo.png" alt="Levely Creative Logo" fill className="object-cover" />
+                <Link href="/" className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-3">
+                    <div className="relative w-12 h-12 flex items-center justify-center">
+                        <Image
+                            src={logoSrc}
+                            alt="Levely Creative Logo"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
                     </div>
                     <span>Levely Creative</span>
                 </Link>
