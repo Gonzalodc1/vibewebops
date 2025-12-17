@@ -169,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section id="servicios" className="py-24 bg-surface/20">
+      <section id="servicios" className="py-24">
         <div className="container mx-auto px-6">
           <ScrollReveal className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">Nuestros Servicios</h2>
