@@ -76,8 +76,8 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative pt-24 pb-32 md:pt-40 md:pb-48 overflow-hidden z-20">
         {/* Visual Focus Overlay */}
-        <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.6)_100%)] z-0 pointer-events-none"></div>
+        <div className="absolute inset-0 dark:bg-black/40 z-0 pointer-events-none"></div>
+        <div className="absolute inset-0 dark:bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.6)_100%)] z-0 pointer-events-none"></div>
 
         <div className="container mx-auto px-6 text-center relative z-10">
           <ScrollReveal direction="up" delay={0}>
