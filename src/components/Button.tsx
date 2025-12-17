@@ -11,11 +11,11 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant = "primary", size = "md", isLoading, children, ...props }, ref) => {
         const variants = {
-            primary: "bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg shadow-indigo-500/20",
-            secondary: "bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700",
-            outline: "border-2 border-slate-200 text-slate-900 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-100 dark:hover:bg-slate-800",
-            ghost: "text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800",
-            white: "bg-white text-indigo-600 hover:bg-slate-50 shadow-md",
+            primary: "bg-accent text-white hover:bg-accent/90 shadow-[0_0_20px_-5px_var(--color-accent-glow)] border border-transparent",
+            secondary: "bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-700",
+            outline: "border-2 border-slate-200 text-slate-900 hover:border-accent hover:text-accent dark:border-slate-700 dark:text-slate-100 dark:hover:border-accent dark:hover:text-accent bg-transparent",
+            ghost: "text-slate-600 hover:text-accent hover:bg-accent/5 dark:text-slate-400 dark:hover:text-white dark:hover:bg-white/5",
+            white: "bg-white text-accent hover:bg-slate-50 shadow-md",
         };
 
         const sizes = {

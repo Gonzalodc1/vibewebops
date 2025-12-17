@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { Container } from "./Container";
 import { Button } from "./Button";
 import { cn } from "@/lib/utils";
@@ -57,6 +57,14 @@ export function Header() {
                                 {item.name}
                             </Link>
                         ))}
+                        <Link
+                            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ""}`}
+                            target="_blank"
+                            className="text-slate-600 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-white transition-colors p-2"
+                            aria-label="Contactar por WhatsApp"
+                        >
+                            <MessageCircle className="h-5 w-5" />
+                        </Link>
                         <Link href="/contacto">
                             <Button size="sm">Pedir Presupuesto</Button>
                         </Link>
@@ -90,6 +98,14 @@ export function Header() {
                             {item.name}
                         </Link>
                     ))}
+                    <Link
+                        href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ""}`}
+                        target="_blank"
+                        className="text-lg font-medium text-slate-900 dark:text-slate-100 py-3 border-b border-slate-100 dark:border-slate-900 flex items-center gap-2"
+                    >
+                        <MessageCircle className="h-5 w-5" />
+                        WhatsApp
+                    </Link>
                     <Link href="/contacto" className="mt-4 pb-8">
                         <Button className="w-full" size="lg">Pedir Presupuesto</Button>
                     </Link>

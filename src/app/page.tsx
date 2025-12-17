@@ -14,79 +14,92 @@ export default function Home() {
   const services = [
     {
       title: "Launch",
-      description: "Ideal para nuevos negocios. Una web profesional, rápida y lista para captar clientes desde el primer día.",
-      features: ["Diseño UX/UI Personalizado", "Desarrollo Next.js + Tailwind", "Formulario + WhatsApp", "Analytics Básico"]
+      description: "Ideal si necesitas una web lista para captar desde ya. Profesional, rápida y sin complicaciones.",
+      features: ["Diseño UX/UI Personalizado", "Desarrollo Next.js + Tailwind", "WhatsApp + llamada 1-click", "GA4 + eventos"]
     },
     {
       title: "Upgrade",
-      description: "Para negocios que necesitan escalar. Rediseño completo, optimización de conversión y funcionalidades avanzadas.",
+      description: "Ideal si tu web existe pero no convierte. Rediseño completo para escalar resultados.",
       features: ["Auditoría de Conversión", "Diseño Premium Animado", "Integraciones (CRM/Email)", "Dashboard de Métricas"],
       featured: true
     },
     {
       title: "Mantenimiento",
-      description: "Olvídate de problemas técnicos. Nos ocupamos de que tu web esté siempre online y actualizada.",
+      description: "Ideal si no quieres tocar nada técnico. Tu negocio siempre online.",
       features: ["Monitorización 24/7", "Cambios de contenido", "Informe mensual", "Soporte Prioritario"]
     }
   ];
 
   const processSteps = [
-    { title: "1. Auditoría", icon: Activity, text: "Analizamos tu situación actual y objetivos." },
-    { title: "2. Propuesta", icon: Layers, text: "Definimos estructura, diseño y alcance." },
-    { title: "3. Build", icon: Zap, text: "Desarrollo ágil con entregas parciales." },
-    { title: "4. Go-Live", icon: CheckCircle2, text: "Lanzamiento, pruebas y formación." },
+    { title: "1. Auditoría", icon: Activity, text: "Detectamos fricción y oportunidades en tu web/Maps." },
+    { title: "2. Propuesta", icon: Layers, text: "Definimos páginas, copy y CTAs." },
+    { title: "3. Build", icon: Zap, text: "Te pasamos preview y ajustamos 1 ronda." },
+    { title: "4. Go-Live", icon: CheckCircle2, text: "Publicación + tracking + checklist final." },
   ];
 
   const pricing = [
     {
       name: "Launch",
-      description: "Para arrancar con fuerza.",
+      description: "Depende de páginas y contenido.",
       price: "Desde 950€",
-      features: ["Web One-Page o Multi-page simple", "Diseño Responsive", "Dominio + SSL incluidos (1 año)", "Entrega en 2 semanas"]
+      features: ["Web One-Page o Multi-page", "Dominio + SSL 1 año", "Entrega 7-10 días"]
     },
     {
       name: "Upgrade",
-      description: "Para negocios consolidados.",
+      description: "Depende de funcionalidades.",
       price: "Desde 1800€",
-      features: ["Arquitectura a medida", "CMS para contenidos", "Integración CRM/Email", "SEO Técnico Avanzado"],
+      features: ["Arquitectura a medida", "CMS autogestionable", "SEO Técnico Avanzado"],
       featured: true
     },
     {
       name: "Mantenimiento",
-      description: "Tranquilidad total.",
+      description: "Depende del volumen de cambios.",
       price: "Desde 50€/mes",
-      features: ["Hosting de alto rendimiento", "Copias de seguridad", "Soporte técnico", "pequeños cambios mensuales"]
+      features: ["Hosting alto rendimiento", "Copias de seguridad", "Cambios mensuales"]
     }
   ];
 
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 md:pt-32 md:pb-48 overflow-hidden z-20">
-        <div className="container mx-auto px-6 text-center">
+      <section className="relative pt-24 pb-32 md:pt-40 md:pb-48 overflow-hidden z-20">
+        {/* Visual Focus Overlay */}
+        <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.6)_100%)] z-0 pointer-events-none"></div>
+
+        <div className="container mx-auto px-6 text-center relative z-10">
           <ScrollReveal direction="up" delay={0}>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-8 leading-[1.1]">
-              Tu web profesional.<br />
-              <span className="text-gradient">Optimizada para vender.</span>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-8 leading-[1.1] text-shadow">
+              Tu web lista para <br className="hidden md:block" />
+              <span className="text-gradient">generar clientes.</span>
             </h1>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={200}>
-            <p className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
-              Diseñamos y desarrollamos sitios web rápidos y modernos con Next.js.
-              Sin plantillas genéricas, enfocados 100% en conversión y medición.
+            <p className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto mb-8 leading-relaxed font-medium">
+              Diseño y desarrollo con Next.js: rápido, claro y optimizado para convertir en móvil.
+              <br className="hidden md:block" /> WhatsApp, llamadas y medición incluida.
             </p>
+
+            {/* Value Chips */}
+            <div className="flex flex-wrap justify-center gap-3 mb-10">
+              {["Mobile-first", "Entrega 7–10 días", "WhatsApp 1-click", "Tracking básico"].map((chip, i) => (
+                <span key={i} className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-sm text-text-muted backdrop-blur-sm">
+                  {chip}
+                </span>
+              ))}
+            </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={400}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <OpenModalButton size="lg" className="min-w-[200px] shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)]">
+              <OpenModalButton size="lg" className="min-w-[200px] shadow-[0_0_40px_-10px_var(--color-accent-glow)]">
                 Pedir presupuesto
               </OpenModalButton>
-              <WhatsAppButton number={whatsappNumber} />
+              <WhatsAppButton number={whatsappNumber} className="min-w-[200px] bg-transparent border-2 border-white/10 hover:bg-white/5" text="Consultar por WhatsApp" />
             </div>
             <p className="mt-4 text-xs text-text-muted opacity-60">
-              Respuesta en menos de 24h
+              Respuesta en menos de 24h.
             </p>
           </ScrollReveal>
         </div>
@@ -112,7 +125,7 @@ export default function Home() {
               <div className="space-y-8">
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground">¿Tu web actual no genera resultados?</h2>
                 <div className="space-y-6">
-                  {["Lenta, diseño anticuado y difícil de navegar.", "No sabes cuántas personas entran ni qué hacen.", "Dependes de plugins que fallan y seguridad vulnerable."].map((item, i) => (
+                  {["Lenta, diseño anticuado y difícil de navegar.", "Instalamos medición de clicks a WhatsApp, llamadas y formularios.", "Dependes de plugins que fallan y seguridad vulnerable."].map((item, i) => (
                     <div key={i} className="flex gap-4 items-start">
                       <div className="mt-1 bg-red-500/10 p-2 rounded-full"><XCircle className="h-5 w-5 text-red-500" /></div>
                       <p className="text-text-muted text-lg">{item}</p>
@@ -120,15 +133,15 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <Card className="bg-gradient-to-br from-surface to-surface-hover border-border relative overflow-hidden group">
+              <Card className="bg-gradient-to-br from-surface to-surface-hover border-accent/20 relative overflow-hidden group shadow-[0_0_50px_-20px_var(--color-accent-glow)]">
                 <div className="absolute top-0 right-0 p-32 bg-accent/5 blur-[100px] rounded-full group-hover:bg-accent/10 transition-all duration-700"></div>
                 <div className="relative z-10">
-                  <h3 className="text-2xl font-bold text-foreground mb-8">La Solución Levely</h3>
+                  <h3 className="text-3xl font-bold text-foreground mb-8">La Solución Levely</h3>
                   <div className="space-y-6">
                     {[
                       "Desarrollo a medida con Next.js",
                       "Analítica integrada (GA4) para medir leads",
-                      "Sin mantenimiento técnico complejo"
+                      "Te lo dejamos estable y fácil de mantener (o lo gestionamos)"
                     ].map((item, i) => (
                       <div key={i} className="flex gap-4 items-start">
                         <div className="mt-1 bg-green-500/10 p-2 rounded-full"><CheckCircle2 className="h-5 w-5 text-green-500" /></div>
@@ -166,7 +179,7 @@ export default function Home() {
                     ))}
                   </ul>
                   <OpenModalButton variant={service.featured ? 'primary' : 'outline'} fullWidth>
-                    Más información
+                    Ver qué incluye
                   </OpenModalButton>
                 </Card>
               </ScrollReveal>
@@ -201,6 +214,9 @@ export default function Home() {
               </ScrollReveal>
             ))}
           </div>
+          <p className="text-center text-xs text-text-muted mt-12 opacity-60">
+            Ventana de respuesta: 24–48h laborables (equipo part-time).
+          </p>
         </div>
       </section>
 
@@ -219,17 +235,17 @@ export default function Home() {
                   <div className="text-3xl font-bold text-accent mb-2">{plan.price}</div>
                   <p className="text-sm text-text-muted mb-6">{plan.description}</p>
                   <OpenModalButton variant={plan.featured ? 'primary' : 'outline'} fullWidth size="sm">
-                    Empezar ahora
+                    Pedir presupuesto
                   </OpenModalButton>
                 </Card>
               </ScrollReveal>
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* FAQ */}
-      <section className="py-24">
+      < section className="py-24" >
         <div className="container mx-auto px-6 max-w-3xl">
           <ScrollReveal className="text-center mb-16">
             <h2 className="text-3xl font-bold text-foreground mb-6">Preguntas Frecuentes</h2>
@@ -237,10 +253,11 @@ export default function Home() {
 
           <div className="space-y-4">
             {[
-              { q: "¿Cuánto tardan?", a: "Para un plan Launch, entre 2 y 3 semanas. Proyectos a medida, 4-6 semanas." },
-              { q: "¿Tengo que pagar mantenimiento?", a: "No es obligatorio, pero sí recomendable para seguridad y rendimiento." },
-              { q: "¿La web será mía?", a: "Sí, 100%. Código y propiedad intelectual son tuyos tras el pago final." },
-              { q: "¿Cómo funciona el pago?", a: "50% inicio, 50% entrega. Factura oficial." }
+              { q: "¿Cuánto tardan?", a: "7–10 días para Launch (depende del contenido). Proyectos a medida, 3-4 semanas." },
+              { q: "¿Tengo que pagar mantenimiento?", a: "No si lo gestionas tú. Si lo gestionamos nosotros, es mensual." },
+              { q: "¿La web será mía?", a: "Sí. Código y propiedad del proyecto son tuyos tras el pago final." },
+              { q: "¿Cómo funciona el pago?", a: "50% inicio / 50% antes de publicar. Factura oficial." },
+              { q: "¿Incluye hosting y dominio?", a: "Launch incluye 1 año de dominio/SSL. El hosting podemos gestionarlo o usar el tuyo." }
             ].map((faq, i) => (
               <ScrollReveal key={i} delay={i * 50}>
                 <details className="group bg-surface border border-border rounded-xl overflow-hidden">
@@ -256,23 +273,26 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Final CTA */}
-      <section className="py-32 relative overflow-hidden">
+      < section className="py-32 relative overflow-hidden" >
         <div className="absolute inset-0 bg-accent/10 blur-[100px] rounded-full pointer-events-none -z-10"></div>
         <div className="container mx-auto px-6 text-center">
           <ScrollReveal>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">¿Listo para el siguiente nivel?</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">¿Hablamos 10 minutos?</h2>
             <p className="text-xl text-text-muted mb-12 max-w-2xl mx-auto">
-              Agenda una consultoría gratuita y veamos cómo podemos ayudarte a crecer.
+              Te decimos qué cambiar para captar más WhatsApps/llamadas y si merece la pena rehacer la web.
             </p>
-            <OpenModalButton size="lg" className="min-w-[200px] text-lg">
-              Pedir presupuesto
-            </OpenModalButton>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <OpenModalButton size="lg" className="min-w-[200px] text-lg shadow-[0_0_40px_-10px_var(--color-accent-glow)]">
+                Pedir presupuesto
+              </OpenModalButton>
+              <WhatsAppButton number={whatsappNumber} className="min-w-[200px] bg-transparent border-2 border-white/10 hover:bg-white/5" text="Consultar por WhatsApp" />
+            </div>
           </ScrollReveal>
         </div>
-      </section>
+      </section >
     </>
   );
 }

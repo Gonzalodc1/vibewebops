@@ -35,16 +35,15 @@ export function OpenModalButton({
     );
 }
 
-export function WhatsAppButton({ number }: { number: string }) {
+export function WhatsAppButton({ number, className, text = "Consultar por WhatsApp" }: { number: string, className?: string, text?: string }) {
     return (
         <Button
-            href={`https://wa.me/${number}`}
-            external
-            variant="text"
-            className="gap-2 text-text-muted hover:text-white"
+            onClick={() => window.open(`https://wa.me/${number}`, '_blank')}
+            variant="outline"
+            className={className}
         >
-            <MessageCircle className="h-5 w-5" />
-            Consultar por WhatsApp
+            <MessageCircle className="h-5 w-5 mr-2" />
+            {text}
         </Button>
     );
 }
