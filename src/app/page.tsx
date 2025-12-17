@@ -188,25 +188,24 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                    ))}
-                </ul>
-                <Button
-                  variant={service.featured ? 'primary' : 'outline'}
-                  size="md"
-                  className="w-full mt-auto"
-                  onClick={() => handleOpenIncludes(service.title.toLowerCase() as any)}
-                >
-                  Ver qué incluye
-                </Button>
-              </Card>
+
+                  <Button
+                    variant={service.featured ? 'primary' : 'outline'}
+                    size="md"
+                    className="w-full mt-auto"
+                    onClick={() => handleOpenIncludes(service.title.toLowerCase() as any)}
+                  >
+                    Ver qué incluye
+                  </Button>
+                </Card>
               </ScrollReveal>
             ))}
+          </div>
         </div>
-      </div>
-    </section >
+      </section>
 
-      {/* Process */ }
-      < section id = "proceso" className = "py-24" >
+      {/* Process */}
+      <section id="proceso" className="py-24">
         <div className="container mx-auto px-6">
           <ScrollReveal className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Cómo Trabajamos</h2>
@@ -237,63 +236,63 @@ export default function Home() {
         </div>
       </section >
 
-    {/* Pricing Teaser */ }
-    < section className = "py-24 bg-surface/20" >
-      <div className="container mx-auto px-6">
-        <ScrollReveal className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Inversión Transparente</h2>
-        </ScrollReveal>
+      {/* Pricing Teaser */}
+      <section className="py-24 bg-surface/20">
+        <div className="container mx-auto px-6">
+          <ScrollReveal className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Inversión Transparente</h2>
+          </ScrollReveal>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {pricing.map((plan, i) => (
-            <ScrollReveal key={i} delay={i * 100}>
-              <Card className={`text-center ${plan.featured ? 'border-accent/40 bg-accent/5' : ''}`}>
-                <h3 className="text-xl font-bold text-foreground mb-2">{plan.name}</h3>
-                <div className="text-3xl font-bold text-accent mb-2">{plan.price}</div>
-                <p className="text-sm text-text-muted mb-6">{plan.description}</p>
-                <OpenModalButton variant={plan.featured ? 'primary' : 'outline'} fullWidth size="sm">
-                  Pedir presupuesto
-                </OpenModalButton>
-              </Card>
-            </ScrollReveal>
-          ))}
+          <div className="grid md:grid-cols-3 gap-8">
+            {pricing.map((plan, i) => (
+              <ScrollReveal key={i} delay={i * 100}>
+                <Card className={`text-center ${plan.featured ? 'border-accent/40 bg-accent/5' : ''}`}>
+                  <h3 className="text-xl font-bold text-foreground mb-2">{plan.name}</h3>
+                  <div className="text-3xl font-bold text-accent mb-2">{plan.price}</div>
+                  <p className="text-sm text-text-muted mb-6">{plan.description}</p>
+                  <OpenModalButton variant={plan.featured ? 'primary' : 'outline'} fullWidth size="sm">
+                    Pedir presupuesto
+                  </OpenModalButton>
+                </Card>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
-      </div>
-      </section >
+      </section>
 
-    {/* FAQ */ }
-    < section className = "py-24" >
-      <div className="container mx-auto px-6 max-w-3xl">
-        <ScrollReveal className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-foreground mb-6">Preguntas Frecuentes</h2>
-        </ScrollReveal>
+      {/* FAQ */}
+      <section className="py-24">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <ScrollReveal className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-foreground mb-6">Preguntas Frecuentes</h2>
+          </ScrollReveal>
 
-        <div className="space-y-4">
-          {[
-            { q: "¿Cuánto tardan?", a: "7–10 días para Launch (depende del contenido). Proyectos a medida, 3-4 semanas." },
-            { q: "¿Tengo que pagar mantenimiento?", a: "No si lo gestionas tú. Si lo gestionamos nosotros, es mensual." },
-            { q: "¿La web será mía?", a: "Sí. Código y propiedad del proyecto son tuyos tras el pago final." },
-            { q: "¿Cómo funciona el pago?", a: "50% inicio / 50% antes de publicar. Factura oficial." },
-            { q: "¿Incluye hosting y dominio?", a: "Launch incluye 1 año de dominio/SSL. El hosting podemos gestionarlo o usar el tuyo." }
-          ].map((faq, i) => (
-            <ScrollReveal key={i} delay={i * 50}>
-              <details className="group bg-surface border border-border rounded-xl overflow-hidden">
-                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-surface-hover transition-colors">
-                  <span className="font-medium text-foreground">{faq.q}</span>
-                  <ChevronDown className="w-5 h-5 text-text-muted group-open:rotate-180 transition-transform" />
-                </summary>
-                <div className="px-6 pb-6 text-text-muted text-sm">
-                  {faq.a}
-                </div>
-              </details>
-            </ScrollReveal>
-          ))}
+          <div className="space-y-4">
+            {[
+              { q: "¿Cuánto tardan?", a: "7–10 días para Launch (depende del contenido). Proyectos a medida, 3-4 semanas." },
+              { q: "¿Tengo que pagar mantenimiento?", a: "No si lo gestionas tú. Si lo gestionamos nosotros, es mensual." },
+              { q: "¿La web será mía?", a: "Sí. Código y propiedad del proyecto son tuyos tras el pago final." },
+              { q: "¿Cómo funciona el pago?", a: "50% inicio / 50% antes de publicar. Factura oficial." },
+              { q: "¿Incluye hosting y dominio?", a: "Launch incluye 1 año de dominio/SSL. El hosting podemos gestionarlo o usar el tuyo." }
+            ].map((faq, i) => (
+              <ScrollReveal key={i} delay={i * 50}>
+                <details className="group bg-surface border border-border rounded-xl overflow-hidden">
+                  <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-surface-hover transition-colors">
+                    <span className="font-medium text-foreground">{faq.q}</span>
+                    <ChevronDown className="w-5 h-5 text-text-muted group-open:rotate-180 transition-transform" />
+                  </summary>
+                  <div className="px-6 pb-6 text-text-muted text-sm">
+                    {faq.a}
+                  </div>
+                </details>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
-      </div>
-      </section >
+      </section>
 
-    {/* Final CTA */ }
-    < section className = "py-32 relative overflow-hidden" >
+      {/* Final CTA */}
+      <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-accent/10 blur-[100px] rounded-full pointer-events-none -z-10"></div>
         <div className="container mx-auto px-6 text-center">
           <ScrollReveal>
@@ -309,14 +308,13 @@ export default function Home() {
             </div>
           </ScrollReveal>
         </div>
-      </section >
-      </section >
+      </section>
 
-    <PricingIncludesModal
-      isOpen={includesModalOpen}
-      onClose={() => setIncludesModalOpen(false)}
-      defaultTab={activeTab}
-    />
+      <PricingIncludesModal
+        isOpen={includesModalOpen}
+        onClose={() => setIncludesModalOpen(false)}
+        defaultTab={activeTab}
+      />
     </>
   );
 }
