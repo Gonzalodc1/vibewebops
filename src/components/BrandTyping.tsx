@@ -16,7 +16,8 @@ export default function BrandTyping({ text }: BrandTypingProps) {
         const loop = () => {
             if (phase === 'typing') {
                 if (displayText.length < text.length) {
-                    const randomSpeed = 50 + Math.random() * 50;
+                    // Slower typing: ~90ms
+                    const randomSpeed = 80 + Math.random() * 20;
                     timeoutId = setTimeout(() => {
                         setDisplayText(text.slice(0, displayText.length + 1));
                     }, randomSpeed);
@@ -24,12 +25,14 @@ export default function BrandTyping({ text }: BrandTypingProps) {
                     setPhase('pausing');
                 }
             } else if (phase === 'pausing') {
+                // Longer pause: 1400ms
                 timeoutId = setTimeout(() => {
                     setPhase('deleting');
-                }, 1500);
+                }, 1400);
             } else if (phase === 'deleting') {
                 if (displayText.length > 0) {
-                    const randomSpeed = 30 + Math.random() * 20;
+                    // Slower deleting: ~140ms
+                    const randomSpeed = 130 + Math.random() * 20;
                     timeoutId = setTimeout(() => {
                         setDisplayText(text.slice(0, displayText.length - 1));
                     }, randomSpeed);
@@ -37,9 +40,10 @@ export default function BrandTyping({ text }: BrandTypingProps) {
                     setPhase('idle');
                 }
             } else if (phase === 'idle') {
+                // Pause before restarting: 1000ms
                 timeoutId = setTimeout(() => {
                     setPhase('typing');
-                }, 500);
+                }, 1000);
             }
         };
 
