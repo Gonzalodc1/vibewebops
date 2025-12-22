@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export const metadata = {
     title: "Servicios | Levely Creative",
-    description: "Desarrollo web a medida, optimización y mantenimiento para negocios digitales.",
+    description: "Desarrollo web a medida y optimización para negocios digitales.",
 };
 
 export default function ServicesPage() {
@@ -80,27 +80,6 @@ export default function ServicesPage() {
                             </div>
                         </Reveal>
 
-                        {/* Maintenance */}
-                        <Reveal>
-                            <div className="grid md:grid-cols-2 gap-12 items-center">
-                                <div>
-                                    <span className="text-indigo-600 font-bold tracking-wide uppercase text-sm">Paz mental</span>
-                                    <h2 className="text-3xl font-bold text-slate-900 dark:text-white mt-2 mb-4">Mantenimiento Levely</h2>
-                                    <p className="text-slate-600 dark:text-slate-400 mb-6">
-                                        Nos convertimos en tu departamento técnico. Aseguramos que tu web siempre esté online, rápida y segura.
-                                    </p>
-                                    <ul className="space-y-2 mb-8 list-disc list-inside text-slate-700 dark:text-slate-300">
-                                        <li>Hosting premium en Vercel</li>
-                                        <li>Monitorización de errores 24/7</li>
-                                        <li>Pequeños cambios mensuales de contenido</li>
-                                        <li>Informe de rendimiento mensual</li>
-                                    </ul>
-                                    <Link href="/contacto">
-                                        <Button variant="outline">Ver Planes de Mantenimiento</Button>
-                                    </Link>
-                                </div>
-                            </div>
-                        </Reveal>
                     </div>
                 </Container>
             </Section>

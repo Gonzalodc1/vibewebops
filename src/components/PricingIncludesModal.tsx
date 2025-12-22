@@ -7,7 +7,7 @@ import { Button } from '@/components/Button';
 import { cn } from '@/lib/utils';
 import { useModal } from '@/context/ModalContext';
 
-type TabType = 'launch' | 'upgrade' | 'maintenance';
+type TabType = 'launch' | 'upgrade';
 
 interface PricingIncludesModalProps {
     isOpen: boolean;
@@ -23,8 +23,7 @@ export default function PricingIncludesModal({ isOpen, onClose, defaultTab }: Pr
     // Headless UI Tab.Group uses index (0, 1, 2)
     const tabIndexMap: Record<TabType, number> = {
         launch: 0,
-        upgrade: 1,
-        maintenance: 2
+        upgrade: 1
     };
 
     const [selectedIndex, setSelectedIndex] = useState(tabIndexMap[defaultTab]);
@@ -58,18 +57,6 @@ export default function PricingIncludesModal({ isOpen, onClose, defaultTab }: Pr
                 'Dashboard de Métricas'
             ],
             note: 'Integraciones y métricas según herramientas del cliente.',
-        },
-        {
-            key: 'maintenance',
-            name: 'Mantenimiento',
-            description: 'Ideal si no quieres tocar nada técnico. Tu negocio siempre online.',
-            features: [
-                'Monitorización 24/7',
-                'Cambios de contenido',
-                'Informe mensual',
-                'Soporte prioritario'
-            ],
-            note: 'Ritmo y alcance de cambios según plan acordado.',
         }
     ];
 

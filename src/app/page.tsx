@@ -15,9 +15,9 @@ import { useState } from "react";
 export default function Home() {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "34711245655";
   const [includesModalOpen, setIncludesModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<'launch' | 'upgrade' | 'maintenance'>('launch');
+  const [activeTab, setActiveTab] = useState<'launch' | 'upgrade'>('launch');
 
-  const handleOpenIncludes = (tab: 'launch' | 'upgrade' | 'maintenance') => {
+  const handleOpenIncludes = (tab: 'launch' | 'upgrade') => {
     setActiveTab(tab);
     setIncludesModalOpen(true);
   };
@@ -34,11 +34,6 @@ export default function Home() {
       description: "Ideal si tu web existe pero no convierte. Rediseño completo para escalar resultados.",
       features: ["Auditoría de Conversión", "Diseño Premium Animado", "Integraciones (CRM/Email)", "Dashboard de Métricas"],
       featured: true
-    },
-    {
-      title: "Mantenimiento",
-      description: "Ideal si no quieres tocar nada técnico. Tu negocio siempre online.",
-      features: ["Monitorización 24/7", "Cambios de contenido", "Informe mensual", "Soporte Prioritario"]
     }
   ];
 
@@ -49,27 +44,7 @@ export default function Home() {
     { title: "4. Go-Live", icon: CheckCircle2, text: "Publicación + tracking + checklist final." },
   ];
 
-  const pricing = [
-    {
-      name: "Launch",
-      description: "Depende de páginas y contenido.",
-      price: "Desde 950€",
-      features: ["Web One-Page o Multi-page", "Dominio + SSL 1 año", "Entrega 7-10 días"]
-    },
-    {
-      name: "Upgrade",
-      description: "Depende de funcionalidades.",
-      price: "Desde 1800€",
-      features: ["Arquitectura a medida", "CMS autogestionable", "SEO Técnico Avanzado"],
-      featured: true
-    },
-    {
-      name: "Mantenimiento",
-      description: "Depende del volumen de cambios.",
-      price: "Desde 50€/mes",
-      features: ["Hosting alto rendimiento", "Copias de seguridad", "Cambios mensuales"]
-    }
-  ];
+
 
   return (
     <>
@@ -176,7 +151,7 @@ export default function Home() {
             <p className="text-text-muted max-w-2xl mx-auto">Soluciones claras para cada etapa de tu negocio digital.</p>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {services.map((service, index) => (
               <ScrollReveal key={index} delay={index * 100}>
                 <Card className={`h-full flex flex-col ${service.featured ? 'border-accent/40 shadow-[0_0_30px_-10px_var(--color-accent-glow)]' : ''}`}>
@@ -238,29 +213,6 @@ export default function Home() {
         </div>
       </section >
 
-      {/* Pricing Teaser */}
-      <section className="py-24 bg-surface/20">
-        <div className="container mx-auto px-6">
-          <ScrollReveal className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Inversión Transparente</h2>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {pricing.map((plan, i) => (
-              <ScrollReveal key={i} delay={i * 100}>
-                <Card className={`text-center ${plan.featured ? 'border-accent/40 bg-accent/5' : ''}`}>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{plan.name}</h3>
-                  <div className="text-3xl font-bold text-accent mb-2">{plan.price}</div>
-                  <p className="text-sm text-text-muted mb-6">{plan.description}</p>
-                  <OpenModalButton variant={plan.featured ? 'primary' : 'outline'} fullWidth size="sm">
-                    Pedir presupuesto
-                  </OpenModalButton>
-                </Card>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* FAQ */}
       <section className="py-24">

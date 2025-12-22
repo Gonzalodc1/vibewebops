@@ -126,7 +126,6 @@ export default function ContactForm({ onSuccess }: { onSuccess?: () => void }) {
                     options={[
                         { value: 'Launch', label: 'Plan Launch' },
                         { value: 'Upgrade', label: 'Plan Upgrade' },
-                        { value: 'Mantenimiento', label: 'Mantenimiento' },
                         { value: 'Consultoria', label: 'Consultoría / Otro' },
                     ]}
                     value={formData.servicio}
