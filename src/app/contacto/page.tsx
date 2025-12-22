@@ -10,7 +10,7 @@ export const metadata = {
     description: "Habla con nosotros. Presupuestos sin compromiso.",
 };
 
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
+const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "34711245655";
 
 export default function ContactPage() {
     return (

@@ -3,7 +3,7 @@
 import { Phone, MessageCircle } from "lucide-react";
 
 export function MobileStickyCTA() {
-    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "34711245655";
     // TODO: Use env variable correctly
 
     return (

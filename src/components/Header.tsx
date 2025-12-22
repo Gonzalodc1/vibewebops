@@ -58,7 +58,7 @@ export function Header() {
                             </Link>
                         ))}
                         <Link
-                            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ""}`}
+                            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "34711245655"}`}
                             target="_blank"
                             className="text-slate-600 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-white transition-colors p-2"
                             aria-label="Contactar por WhatsApp"
@@ -99,7 +99,7 @@ export function Header() {
                         </Link>
                     ))}
                     <Link
-                        href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ""}`}
+                        href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "34711245655"}`}
                         target="_blank"
                         className="text-lg font-medium text-slate-900 dark:text-slate-100 py-3 border-b border-slate-100 dark:border-slate-900 flex items-center gap-2"
                     >

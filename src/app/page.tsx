@@ -13,7 +13,7 @@ import { Button } from "@/components/Button";
 import { useState } from "react";
 
 export default function Home() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "34711245655";
   const [includesModalOpen, setIncludesModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<'launch' | 'upgrade' | 'maintenance'>('launch');
 

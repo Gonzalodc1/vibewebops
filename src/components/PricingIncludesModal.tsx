@@ -17,7 +17,7 @@ interface PricingIncludesModalProps {
 
 export default function PricingIncludesModal({ isOpen, onClose, defaultTab }: PricingIncludesModalProps) {
     const { openModal: openContactModal } = useModal();
-    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "34711245655";
 
     // Map defaultTab prop to index if needed, or controlled state
     // Headless UI Tab.Group uses index (0, 1, 2)
